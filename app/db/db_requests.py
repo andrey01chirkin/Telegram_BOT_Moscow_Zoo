@@ -2,7 +2,7 @@ import sqlite3
 
 class DataBase:
     def __init__(self):
-        self.__connection = sqlite3.connect('app/db/data.db')
+        self.__connection = sqlite3.connect('data/data.db')
         self.__cursor = self.__connection.cursor()
 
     def get_questions_answers(self) -> list[list]:
