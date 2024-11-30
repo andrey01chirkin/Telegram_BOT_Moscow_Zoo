@@ -19,7 +19,7 @@ async def command_start_handler(message: Message, state: FSMContext) -> None:
     await state.set_state(QuizStates.start_quiz)
     await bot.send_photo(
         chat_id=message.chat.id,
-        photo=FSInputFile('app\\images\\animals\\panda_katyusha.jpeg'),
+        photo=FSInputFile('app/images/animals/panda_katyusha.jpeg'),
         caption=f"Привет, <b>{html.bold(message.from_user.full_name)}!</b>\n"
                 f"Я Катюша, символ и гордость Московского зоопарка. \nЯ очень рада тебя видеть!\n"
                 f"Твой внутренний зверь так и рвется на волю!\n"
