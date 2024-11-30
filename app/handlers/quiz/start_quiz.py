@@ -28,7 +28,7 @@ async def command_start_handler(message: Message, state: FSMContext) -> None:
 @start_quiz_router.callback_query(QuizStates.start_quiz, F.data == 'start_quiz')
 async def start_quiz_handler(callback: CallbackQuery, state: FSMContext):
     await callback.answer()
-    photo = FSInputFile('app\\images\\logo\\MZoo-logo-сircle-universal-preview.jpg')
+    photo = FSInputFile('app/images/logo/MZoo-logo-сircle-universal-preview.jpg')
     await state.set_state(QuizStates.quiz)
     await bot.send_photo(
         chat_id=callback.message.chat.id,
