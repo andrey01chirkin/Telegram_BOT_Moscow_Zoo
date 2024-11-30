@@ -1,0 +1,18 @@
+from aiogram import Router
+from app.handlers.admin.change_answers import admin_change_answers
+from app.handlers.admin.change_question import admin_change_question
+from app.handlers.admin.delete_question import admin_delete_question
+from app.handlers.admin.insert_question import admin_insert_question_answers
+from app.handlers.admin.show_connect_data import admin_show_connect_data
+from app.handlers.admin.show_feedback_data import admin_show_feedback_data
+
+admin_router = Router()
+admin_router.include_routers(admin_show_connect_data)
+admin_router.include_routers(admin_show_feedback_data)
+admin_router.include_routers(admin_insert_question_answers)
+admin_router.include_routers(admin_change_question)
+admin_router.include_routers(admin_delete_question)
+admin_router.include_routers(admin_change_answers)
+
+
+
