@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-TOKEN = os.getenv('TOKEN') #Переменной Token присвойте Ваш токен
+TOKEN = os.getenv('TOKEN') #Переменной Token присвойте Ваш токен в ковычках
 admin_list = [int(os.getenv('ADMIN_ID'))] #Перечислите в списке id админов для доступа к админ панели
 
 
