@@ -1,5 +1,5 @@
 from aiogram import Router
-from aiogram.types import Message
+from aiogram.types import Message, ReplyKeyboardRemove
 
 final_router = Router()
 
@@ -9,4 +9,4 @@ async def text_handler(message: Message) -> None:
                          '/start - запустить бота\n'
                          '/connect - связаться с сотрудником зоопарка\n'
                          '/feedback - оставить обратную связь\n'
-                         '/admin - админ панель')
+                         '/admin - админ панель', reply_markup=ReplyKeyboardRemove())
