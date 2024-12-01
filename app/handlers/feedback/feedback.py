@@ -2,7 +2,7 @@ import os
 from aiogram import Router, F
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
-from aiogram.types import Message
+from aiogram.types import Message, ReplyKeyboardRemove
 from app import bot
 from app.db.db_requests import DataBase
 from app.states.feedback_states import FeedbackStates
@@ -13,7 +13,7 @@ feedback_router = Router()
 @feedback_router.message(F.text, Command('feedback'))
 async def command_connect_handler(message: Message, state: FSMContext) -> None:
     await state.clear()
-    await message.answer('Введите Ваше имя')
+    await message.answer('Введите Ваше имя', reply_markup=ReplyKeyboardRemove())
     await state.set_state(FeedbackStates.name_user)
 
 @feedback_router.message(FeedbackStates.name_user, F.text, ~F.text.startswith('/'))

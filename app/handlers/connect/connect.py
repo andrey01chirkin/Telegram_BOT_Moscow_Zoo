@@ -3,7 +3,7 @@ import re
 from aiogram import Router, F
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
-from aiogram.types import Message
+from aiogram.types import Message, ReplyKeyboardRemove
 from app import bot
 from app.db.db_requests import DataBase
 from app.states.connect_states import ConnectStates
@@ -14,7 +14,7 @@ connect_router = Router()
 @connect_router.message(F.text, Command('connect'))
 async def command_connect_handler(message: Message, state: FSMContext) -> None:
     await state.clear()
-    await message.answer('Введите Ваше имя')
+    await message.answer('Введите Ваше имя', reply_markup=ReplyKeyboardRemove())
     await state.set_state(ConnectStates.name)
 
 @connect_router.message(ConnectStates.name, F.text, ~F.text.startswith('/'), ~F.text.startswith('📝 Повторить анкету'))
